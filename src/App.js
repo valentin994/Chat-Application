@@ -9,28 +9,32 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-
+import Cookies from 'js-cookie';
 
 function App() {
   const client = new W3CWebSocket("ws://127.0.0.1:8000/ws");
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    client.onerror = () => {
-      console.log("Connection error")
-    }
-    client.onopen = () => {
-      console.log("Connection established");
-    };
-    client.onmessage = (message) => {
-      console.log(message)
+    if (Cookies.get("access_token_cookie")) setLoggedIn(true);
+    console.log(Cookies.get("access_token_cookie"));
+    if (loggedIn) {
+      client.onerror = () => {
+        console.log("Connection error")
+      }
+      client.onopen = () => {
+        console.log("Connection established");
+      };
+      client.onmessage = (message) => {
+        console.log(message)
+      }
     }
 
   })
   let routes = (
     <Switch>
       <Route path="/signin">
-        <Login />
+        <Login setLoggedIn={setLoggedIn} />
       </Route>
     </Switch>)
   if (loggedIn) {
