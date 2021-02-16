@@ -25,9 +25,6 @@ function App() {
       client.onopen = () => {
         console.log("Connection established");
       };
-      client.onmessage = (message) => {
-        console.log(message)
-      }
     }
 
   })
