@@ -49,7 +49,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navigation setLogin={setLoggedIn} loggedIn={loggedIn} />
+        <Navigation setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
         {routes}
       </div>
     </Router>
