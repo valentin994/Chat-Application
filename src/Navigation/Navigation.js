@@ -15,7 +15,7 @@ export default function Navigation(props) {
 
     return (
         <div>
-            <nav className="bg-gray-800">
+            <nav className="bg-gray-900">
                 <div className="relative flex items-center justify-between h-16">
                     <ul className="flex font-sans text-lg text-gray-300">
                         {props.loggedIn ? "" : <li className="p-2 hover:text-gray-100 cursor-pointer"><Link to="/signin">Signin</Link></li>}

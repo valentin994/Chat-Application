@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Login(props) {
     const [username, setUsername] = useState("")
@@ -24,12 +24,15 @@ export default function Login(props) {
     }
     return (
         <div>
-            <div className="bg-primary lg:w-4/12 md:6/12 w-10/12 m-auto my-10 shadow-md">
+            <div className="bg-gray-800 lg:w-4/12 md:6/12 w-10/12 m-auto my-10 shadow-md">
                 <form className="m-6 p-4" onSubmit={handleSubmit}>
-                    <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} className="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Username" />
-                    <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} className="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" placeholder="Password" />
-                    <button className="mt-6 px-4 py-1 text-white font-light tracking-wider bg-gray-900 hover:bg-gray-800 rounded"
-                        type="submit">Login</button>
+                    <h3 className="p-2 text-white text-4xl">Sign in</h3>
+                    <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} className="rounded-sm px-4 py-3 mt-3 placeholder-white focus:outline-none bg-gray-500 text-white w-full" placeholder="Username" />
+                    <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} className="rounded-sm px-4 py-3 mt-3 placeholder-white focus:outline-none bg-gray-500 text-white w-full" placeholder="Password" />
+                    <div>
+                        <button className="mt-6 px-4 py-1 text-white bg-green-400 hover:bg-green-500"
+                            type="submit">Sign in</button> <Link className="text-white underline p-2 text-xs">You don't have an account? Register</Link>
+                    </div>
                 </form>
             </div>
         </div>
