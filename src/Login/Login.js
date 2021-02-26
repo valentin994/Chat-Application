@@ -7,7 +7,7 @@ export default function Login(props) {
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
     const [register, setRegister] = useState(false);
-
+    const [errorMessage, setErrorMessage] = useState("");
     let history = useHistory();
 
     const handleSubmit = (event) => {
@@ -32,11 +32,10 @@ export default function Login(props) {
                     "Access-Control-Allow-Origin": "*",
                 }
             }).then(res => {
-                props.setLoggedIn(true);
                 console.log(res);
-                history.push("/");
+                setRegister(false);
             }).catch(err => {
-                console.log(err.request.response)
+                setErrorMessage(JSON.parse(err.request.response).detail)
             })
         }
     }
@@ -58,7 +57,7 @@ export default function Login(props) {
                 <h3 className="p-2 text-white text-4xl">Register</h3>
                 <input type="text" onChange={(e) => setName(e.target.value)} value={name} className="rounded-sm px-4 py-3 mt-3 placeholder-white focus:outline-none bg-gray-500 text-white w-full" placeholder="Name" />
                 <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} className="rounded-sm px-4 py-3 mt-3 placeholder-white focus:outline-none bg-gray-500 text-white w-full" placeholder="Email" />
-                <p className="text-red-400">Email already in use</p>
+                <p className="text-red-400">{errorMessage}</p>
                 <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} className="rounded-sm px-4 py-3 mt-3 placeholder-white focus:outline-none bg-gray-500 text-white w-full" placeholder="Password" />
                 <div>
                     <button className="mt-6 px-4 py-2 text-white bg-green-400 hover:bg-green-500"
