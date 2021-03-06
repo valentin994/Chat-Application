@@ -10,6 +10,7 @@ import {
   Route
 } from "react-router-dom";
 import Cookies from 'js-cookie';
+import Sidenav from "./Sidenav/Sidenav";
 
 function App() {
   const client = new W3CWebSocket("ws://127.0.0.1:8000/ws");
@@ -48,9 +49,10 @@ function App() {
   }
   return (
     <Router>
-      <div className="App">
+      <div className="App border-4">
         <Navigation setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
         {routes}
+        <Sidenav />
       </div>
     </Router>
   );

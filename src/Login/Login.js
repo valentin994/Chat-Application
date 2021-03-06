@@ -20,7 +20,6 @@ export default function Login(props) {
                 }
             }).then(res => {
                 props.setLoggedIn(true);
-                console.log(res);
                 history.push("/");
             }).catch(err => {
                 console.log(err)
@@ -32,7 +31,6 @@ export default function Login(props) {
                     "Access-Control-Allow-Origin": "*",
                 }
             }).then(res => {
-                console.log(res);
                 setRegister(false);
             }).catch(err => {
                 setErrorMessage(JSON.parse(err.request.response).detail)
