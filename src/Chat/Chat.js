@@ -32,7 +32,7 @@ export default function Chat(props) {
         setMessage(event.target.value)
     }
     return (
-        <div className="text-white border-4 border-red-600">
+        <div className="text-white border-4 border-red-600 md:container md:mx-auto h-5/6">
             <form onSubmit={sendMsg}>
                 <input type="text" value={message} onChange={handleChange} placeholder="Message" />
                 <button type="submit">send</button>

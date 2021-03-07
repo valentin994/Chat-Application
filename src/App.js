@@ -49,9 +49,8 @@ function App() {
   }
   return (
     <Router>
-      <div className="App border-4">
+      <div className="App border-4 h-screen">
         <Navigation setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
-        {routes}
         <Sidenav />
       </div>
     </Router>
