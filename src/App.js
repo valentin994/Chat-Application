@@ -49,7 +49,7 @@ function App() {
   }
   return (
     <Router>
-      <div className="App border-4 h-screen">
+      <div className="App flex flex-col h-screen">
         <Navigation setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
         <Sidenav />
       </div>
